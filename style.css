@@ -271,10 +271,10 @@ nav ul li a:hover {
 }
 
 .bar {
-    width: 40px;
-    margin: 2px;
+    width: 27px;
+    margin: 1px;
     height: 3px;
-    background-color: #fff;
+    background-color: #f77a45;
     border-radius: 3px;
 }
 
