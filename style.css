@@ -18,6 +18,11 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -45,7 +50,7 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 120px 20px 100px;
     background: linear-gradient(to right, #0056b3, #007bff);
     color: white;
 }
@@ -69,17 +74,18 @@ nav ul li a:hover {
     border-radius: 25px;
     margin-top: 15px;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .hero button:hover {
     background: #cc5500;
+    transform: scale(1.05);
 }
 
 /* Services Section */
 .services {
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px;
     background: white;
 }
 
@@ -99,17 +105,18 @@ nav ul li a:hover {
     font-size: 18px;
     font-weight: bold;
     transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .service-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
     background: #0056b3;
 }
 
 /* Booking Section */
 .booking {
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px;
     background: #f8f9fa;
 }
 
@@ -129,11 +136,26 @@ nav ul li a:hover {
     color: white;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .booking form button:hover {
     background: #cc5500;
+    transform: scale(1.05);
+}
+
+/* About Section */
+.about {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+    background: #f8f9fa;
 }
 
 /* Footer */
@@ -165,4 +187,9 @@ footer ul li a {
 
 footer ul li a:hover {
     color: #fff;
+}
+
+/* Smooth Animations */
+button, .service-item {
+    transition: all 0.3s ease-in-out;
 }
