@@ -110,6 +110,8 @@ nav ul li a:hover {
     font-weight: bold;
     transition: transform 0.3s, background 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 20px;
+    width: 100px;
 }
 
 .service-item:hover {
@@ -277,6 +279,12 @@ nav ul li a:hover {
     background-color: #f77a45;
     border-radius: 3px;
 }
+
+.bar:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 
 /* Mobile Navigation Links */
 #nav-links {
