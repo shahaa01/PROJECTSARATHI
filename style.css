@@ -9,6 +9,10 @@ body {
     scroll-behavior: smooth;
 }
 
+h1 {
+    font-size: 40px;
+}
+
 /* Header and Navigation */
 header {
     background: #007bff;
@@ -260,15 +264,15 @@ nav ul li a:hover {
 
 /* Mobile Menu */
 .menu-toggle {
-    display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    padding: 30px;
 }
 
 .bar {
-    width: 55px;
-    margin: 3px;
+    width: 40px;
+    margin: 2px;
     height: 3px;
     background-color: #fff;
     border-radius: 3px;
