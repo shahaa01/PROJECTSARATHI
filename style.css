@@ -208,43 +208,106 @@ button, .service-item {
     cursor: pointer;
 }
 
-/* Mobile Menu Styles */
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Header and Navigation */
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Mobile Menu */
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    gap: 4px;
 }
 
 .bar {
-    background: white;
-    height: 4px;
-    width: 60px; /* Increased width for longer lines */
-    margin: 6px;
-    border-radius: 2px;
+    width: 60px;
+    margin: 5px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
 }
 
+/* Mobile Navigation Links */
+#nav-links {
+    display: flex;
+}
+
+#nav-links li {
+    display: inline-block;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
     }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
+    #nav-links {
+        display: none; /* Hide the menu by default */
+        width: 100%;
+        text-align: center;
+        background-color: #007bff;
         position: absolute;
         top: 60px;
         left: 0;
-        width: 100%;
-        background: #007bff;
-        padding: 10px 0;
-        text-align: center;
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 999;
     }
 
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
+    #nav-links li {
         margin: 10px 0;
+    }
+
+    /* When 'active' class is added, show the menu */
+    #nav-links.active {
+        display: flex;
     }
 }
