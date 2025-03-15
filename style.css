@@ -150,6 +150,13 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
+label {
+    font-weight: bolder;
+    color: #cc5500;
+}
+
+
+
 /* About Section */
 .about {
     text-align: center;
@@ -162,6 +169,15 @@ nav ul li a:hover {
     text-align: center;
     padding: 80px 20px;
     background: #f8f9fa;
+}
+
+.contact p {
+    font-weight: bold;
+}
+
+.contact p a{
+    font-weight: bolder;
+    color: #cc5500;
 }
 
 /* Footer */
