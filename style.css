@@ -1,11 +1,12 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #f4f4f4;
     color: #333;
+    scroll-behavior: smooth;
 }
 
 /* Header and Navigation */
@@ -16,6 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -33,33 +35,51 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
 }
 
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 50px 20px;
-    background: #0056b3;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #0056b3, #007bff);
     color: white;
 }
 
-.hero input, .hero button {
+.hero input {
     margin-top: 15px;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    width: 60%;
+    max-width: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .hero button {
     background: #ff6600;
     color: white;
     cursor: pointer;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.hero button:hover {
+    background: #cc5500;
 }
 
 /* Services Section */
 .services {
     text-align: center;
-    padding: 40px;
+    padding: 60px 20px;
     background: white;
 }
 
@@ -67,37 +87,53 @@ nav ul li a {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .service-item {
     background: #007bff;
     color: white;
-    padding: 15px 25px;
-    border-radius: 5px;
+    padding: 20px 30px;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+    background: #0056b3;
 }
 
 /* Booking Section */
 .booking {
     text-align: center;
-    padding: 40px;
+    padding: 60px 20px;
     background: #f8f9fa;
 }
 
 .booking form input, .booking form button {
     display: block;
     margin: 10px auto;
-    padding: 10px;
+    padding: 12px;
     width: 80%;
     max-width: 400px;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .booking form button {
     background: #ff6600;
     color: white;
     cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.booking form button:hover {
+    background: #cc5500;
 }
 
 /* Footer */
@@ -105,7 +141,9 @@ footer {
     background: #333;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
+    font-size: 14px;
+    margin-top: 50px;
 }
 
 footer ul {
@@ -115,10 +153,16 @@ footer ul {
 
 footer ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 footer ul li a {
-    color: #ff6600;
+    color: #ffcc00;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #fff;
 }
