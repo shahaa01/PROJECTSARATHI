@@ -1,7 +1,7 @@
-// Mobile Menu Toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.getElementById('nav-links');
+let bar = document.querySelector("#mobile-menu");
+let nav = document.querySelector("#nav-links");
 
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active'); // Toggle the 'active' class
-});
+bar.addEventListener('click', () => {
+    console.log("clicked");
+    nav.classList.toggle('hide');
+})

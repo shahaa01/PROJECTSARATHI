@@ -302,24 +302,23 @@ nav ul li a:hover {
     }
 
     #nav-links {
-        display: none; /* Hide the menu by default */
         width: 100%;
         text-align: center;
         background-color: #007bff;
         position: absolute;
         top: 60px;
-        left: 0;
+        right: 10px;
         flex-direction: column;
         padding: 20px 0;
-        z-index: 999;
+        z-index: 10000;
     }
 
     #nav-links li {
         margin: 10px 0;
     }
 
-    /* When 'active' class is added, show the menu */
-    #nav-links.active {
-        display: flex;
-    }
+}
+
+.hide {
+    display: none !important;
 }
