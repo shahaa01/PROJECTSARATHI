@@ -193,3 +193,16 @@ footer ul li a:hover {
 button, .service-item {
     transition: all 0.3s ease-in-out;
 }
+
+/* Login Button */
+.login-button {
+    background: #ff6600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.login-button:hover {
+    background: #000000;
+}
