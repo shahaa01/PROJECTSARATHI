@@ -130,7 +130,7 @@ nav ul li a:hover {
     background: #f8f9fa;
 }
 
-.booking form input, .booking form button {
+.booking form input, .booking form button, .booking form select {
     display: block;
     margin: 10px auto;
     padding: 12px;

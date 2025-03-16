@@ -15,8 +15,14 @@
             <input type="password" placeholder="Password" required>
             <label for="date">Enter your birthday : </label>
             <input type="date" class="when" id="date" required>
-            <label for="gend">Gender</label>
-            <input type="text" class="gender" id="sex" required>
+            <label for="gender">Gender</label>
+            <!-- <input type="text" class="gender" id="sex" required> -->
+            <select name="Gender" id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+                <option value="not-to-say">Prefer not to say</option>
+            </select>
             <button type="submit">Create Account</button>
         </form>
     </section>
