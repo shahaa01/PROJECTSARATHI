@@ -1,10 +1,8 @@
 //intro code
 let intro = document.querySelector('.intro-container');
-let introAudio = document.querySelector('.intro-sound');
 
 setTimeout(() => {
     intro.classList.add('hide');
-    introAudio.play().catch(error => console.log("Playback blocked: user interaction required"));
 }, 1500);
 
 
