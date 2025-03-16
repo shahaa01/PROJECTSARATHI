@@ -1,3 +1,9 @@
+//intro code
+let intro = document.querySelector('.intro-container');
+setTimeout(() => {
+    intro.classList.add('hide');
+}, 1500);
+
 let bar = document.querySelector("#mobile-menu");
 let nav = document.querySelector("#nav-links");
 console.log(window.innerWidth)
@@ -16,3 +22,4 @@ bar.addEventListener('click', () => {
 
 checkWidth();
 window.addEventListener('resize', checkWidth);
+
