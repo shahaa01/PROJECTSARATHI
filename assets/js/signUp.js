@@ -1,8 +1,13 @@
 let intro = document.querySelector('.intro-container');
 
 setTimeout(() => {
-    intro.classList.add('hide');
-}, 700);
+    intro.style.transition = "opacity 0.5s ease-out";
+    intro.style.opacity = "0";
+    
+    setTimeout(() => {
+        intro.classList.add('hide');
+    }, 500); // Wait for fade-out to complete
+}, 1500);
 
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
