@@ -229,7 +229,7 @@ body{
     background: linear-gradient(45deg, orange, #ff7f50); /* More orange and lighter gradient */
     color: transparent;
     -webkit-background-clip: text; /* Clip the background color to the text */
-    animation: fadeInZoom 1s ease-out forwards, fadeOut 1s 1s forwards; /* Slower animation */
+    animation: fadeInZoom 700ms ease-out forwards, fadeOut 700ms 700ms forwards; /* Slower animation */
 }
 
 @keyframes fadeInZoom {
@@ -258,4 +258,54 @@ body{
 
 .hide {
     display: none;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .form-container {
+        width: 100%;
+        position: relative;
+    }
+    .sign-in, .sign-up {
+        width: 100%;
+        position: relative;
+        opacity: 1;
+        transform: none;
+    }
+    .container.active .sign-in, 
+    .container.active .sign-up {
+        transform: none;
+    }
+    .toggle-container {
+        display: none; /* Hide toggle panel for a cleaner mobile UI */
+    }
+    .container form {
+        padding: 20px;
+    }
+    .container input {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .container button {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+    }
+    .intro-text {
+        font-size: 60px;
+    }
+    @keyframes fadeInZoom {
+        0% { transform: scale(2); }
+        100% { transform: scale(1); }
+    }
 }

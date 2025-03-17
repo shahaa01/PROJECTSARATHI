@@ -2,7 +2,7 @@ let intro = document.querySelector('.intro-container');
 
 setTimeout(() => {
     intro.classList.add('hide');
-}, 1000);
+}, 700);
 
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
