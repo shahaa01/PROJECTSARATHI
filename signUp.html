@@ -1,31 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1 style="text-align: center;">Signup as Sarathi</h1>
-       <section id="booking" class="booking">
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="password" placeholder="Password" required>
-            <label for="date">Enter your birthday : </label>
-            <input type="date" class="when" id="date" required>
-            <label for="gender">Gender</label>
-            <!-- <input type="text" class="gender" id="sex" required> -->
-            <select name="Gender" id="sex">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="others">Others</option>
-                <option value="not-to-say">Prefer not to say</option>
-            </select>
-            <button type="submit">Create Account</button>
-        </form>
-    </section>
 
+    <link rel="stylesheet" href="assets/css/sign-up.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>        <!--https://boxicons.com/ -->
+
+    <title>Signup as Sarathi</title>
+</head>
+
+<body>
+    <div class="intro-container">
+        <div class="intro-text">Sarathi</div>
+    </div>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icons"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-linkedin'></i></a>
+                </div>
+                <span>Register with E-mail</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Enter E-mail">
+                <input type="password" placeholder="Enter Password">
+                <button id="sign-up-button">Sign Up</button>
+            </form>
+        </div>
+
+
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icons"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-linkedin'></i></a>
+                </div>
+                <span>Login With Email & Password</span>
+                <input type="email" placeholder="Enter E-mail">
+                <input type="password" placeholder="Enter Password">
+                <a href="#">Forget Password?</a>
+                <button id="sign-in-button">Sign In</button>
+            </form>
+        </div>
+
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Signup as Sarathi</h1>
+                    <p>Sign in With ID & Passowrd</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Sarathi</h1>
+                    <p>Join "Sarathi"! Your Skills, Our Platform – Together, We Serve!</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/signUp.js"></script>
 </body>
+
 </html>
