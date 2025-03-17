@@ -2,6 +2,7 @@ let intro = document.querySelector('.intro-container');
 
 setTimeout(() => {
     intro.style.transition = "opacity 0.1s ease-out";
+
     intro.style.opacity = "0";
     
     setTimeout(() => {

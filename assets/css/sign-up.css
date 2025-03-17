@@ -257,8 +257,11 @@ body{
 }
 
 .hide {
-    display: none;
+    display: none !important;
+    visibility: hidden;
+    opacity: 0;
 }
+
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
