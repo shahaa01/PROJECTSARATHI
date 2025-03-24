@@ -23,7 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('assets/images/intro/signupImg.jpg') center/cover;
+    background: url('/assets/images/intro/signupImg.jpg') center/cover;
 }
 
 header h1 {
