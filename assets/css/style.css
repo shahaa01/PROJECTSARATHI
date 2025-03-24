@@ -74,7 +74,7 @@ a {
 
 @keyframes pulse {
     0%, 100% {
-        filter: drop-shadow(0 0 12px rgba(255, 102, 0, 0.7));
+        filter: drop-shadow(0 0 12px #ff6600b3);
     }
     50% {
         filter: drop-shadow(0 0 24px rgba(255, 102, 0, 0.9));

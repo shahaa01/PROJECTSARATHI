@@ -9,7 +9,8 @@
 }
 
 body{
-    background-color: rgb(255, 102, 0, 0.7);
+    background: url('https://plus.unsplash.com/premium_photo-1683141410787-c4dbd2220487?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+    opacity: 1;    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,7 +65,7 @@ body{
 
 .container button.hidden{
     background-color: transparent;
-    border-color: #fff;
+    background-color: #ff6600b3;
 }
 
 .container form{
