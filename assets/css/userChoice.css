@@ -23,18 +23,21 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('https://plus.unsplash.com/premium_photo-1683141410787-c4dbd2220487?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
-
+    background: url('/assets/images/intro/signupImg.jpg') center/cover;
 }
 
 header h1 {
-    font-weight: 700;
-    font-size: 28px;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 35px;
     background: linear-gradient(45deg, #ff6600, #cc5500);
+    /* background-color: #111827; */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     transition: var(--transition);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 .subtitle {
@@ -49,7 +52,7 @@ header h1 {
 .container {
     width: 90%;
     max-width: 400px;
-    height: auto;
+    height:max-content;
     min-height: 300px;
     background-color: #fff;
     border-radius: 10px;
@@ -79,10 +82,10 @@ a {
     justify-content: center;
 }
 
-.user {
+.user , .sarathi{
     height: 50px;
     width: 80%;
-    margin: 10px 0;
+    margin: 7.5px 0;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     font-weight: 600;
@@ -94,6 +97,8 @@ a {
     padding: 10px;
     transition: var(--transition);
     box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+    letter-spacing: 1px;
+    overflow: hidden;
 }
 
 .user:hover {
@@ -103,20 +108,8 @@ a {
 }
 
 .sarathi {
-    height: 50px;
-    width: 80%;
-    margin: 5px 0;
-    background-color: #F0F0F0;
+    background: #F0F0F0;
     color: #000;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    transition: all 0.3s ease-in-out;
-
-
 }
 
 .sarathi:hover {
