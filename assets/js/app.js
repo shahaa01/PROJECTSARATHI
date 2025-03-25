@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuToggle && navLinks) {
         // Initialize mobile menu state based on screen width
         function updateMenuVisibility() {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 950) {
                 navLinks.classList.remove('active');
             } else {
                 navLinks.classList.remove('hide');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Toggle mobile menu on click
         mobileMenuToggle.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 950) {
                 navLinks.classList.toggle('active');
                 
                 // Animate hamburger to X

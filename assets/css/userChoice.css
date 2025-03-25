@@ -38,7 +38,9 @@ header h1 {
     transition: var(--transition);
     letter-spacing: 1px;
     margin-bottom: 10px;
-}
+} 
+ 
+
 
 .subtitle {
     color: #666;
@@ -46,13 +48,23 @@ header h1 {
     font-size: 16px;
 }
 
+@media (max-width : 760px) {
+    header h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
 
+    .subtitle {
+        margin-bottom: 10px;
+    }
+
+}
 
 
 .container {
     width: 90%;
     max-width: 400px;
-    height:max-content;
+    height:auto;
     min-height: 300px;
     background-color: #fff;
     border-radius: 10px;
@@ -118,14 +130,21 @@ a {
     cursor: pointer;
 }
 
-@media(max-width: 600px) {
+@media(max-width: 500px) {
     .container {
         width: 95%;
         padding: 15px;
+        height: 50%;
+        max-height: 325px;
     }
 
     .user, .sarathi {
         width: 90%;
+    }
+
+    .user, .sarathi {
+        padding: 5px;
+
     }
 
 }
