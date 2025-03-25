@@ -737,3 +737,8 @@ footer p {
 .hide {
     display: none !important;
 }
+
+.header-a {
+    all: unset;
+    cursor: pointer;
+}
