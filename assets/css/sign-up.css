@@ -9,7 +9,7 @@
 }
 
 body{
-    background: url('/assets/images/intro/signupImg.jpg') center/cover;
+    background: url('../images/intro/signupImg.jpg') center/cover;
     opacity: 1;    
     display: flex;
     align-items: center;
