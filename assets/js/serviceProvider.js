@@ -1,23 +1,168 @@
+// Enhanced JS for Sarathi
+
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Intro animation
-    setTimeout(() => {
-        document.querySelector('.intro-container').style.opacity = 0;
+    const intro = document.querySelector('.intro-container');
+    
+    if (intro) {
+        // Add a slight delay before starting the fade out
         setTimeout(() => {
-            document.querySelector('.intro-container').style.display = 'none';
-        }, 500);
-    }, 2000);
-
+            // Add fade-out animation
+            intro.style.opacity = '0';
+            intro.style.transition = 'opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+            
+            // Remove the intro container after animation completes
+            setTimeout(() => {
+                intro.classList.add('hide');
+                // Trigger entrance animations for hero content
+                animateHeroContent();
+            }, 800);
+        }, 1500);
+    } else {
+        // If intro is not present, animate hero content immediately
+        animateHeroContent();
+    }
+    
     // Mobile menu toggle
-    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
     
-    if (mobileMenu) {
-        mobileMenu.addEventListener('click', function() {
-            this.classList.toggle('active');
+    if (mobileMenuToggle && navLinks) {
+        // Initialize mobile menu state based on screen width
+        function updateMenuVisibility() {
+            if (window.innerWidth > 950) {
+                // Reset menu state for desktop view
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                // Reset bar styles only if needed for desktop
+                const bars = mobileMenuToggle.querySelectorAll('.bar');
+                if (bars.length > 0) {
+                    bars[0].style.transform = 'none';
+                    bars[1].style.opacity = '1';
+                    bars[2].style.transform = 'none';
+                }
+            } 
+            // No 'else' block needed - CSS handles visibility below 950px
+            // The 'display: flex !important' rule in CSS ensures the toggle is visible
+        }
+        
+        // Function to toggle the menu
+        function toggleMenu(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            // Toggle active classes
             navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+
+            // Animate hamburger icon
+            const bars = mobileMenuToggle.querySelectorAll('.bar');
+            if (bars.length > 0) {
+                if (mobileMenuToggle.classList.contains('active')) {
+                    bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    bars[1].style.opacity = '0';
+                    bars[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    bars[0].style.transform = 'none';
+                    bars[1].style.opacity = '1';
+                    bars[2].style.transform = 'none';
+                }
+            }
+        }
+        
+        // Add click event listener
+        mobileMenuToggle.addEventListener('click', toggleMenu);
+        
+        // Add touch event listeners for mobile
+        mobileMenuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
+        
+        // Close menu when clicking/touching outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                
+                const bars = mobileMenuToggle.querySelectorAll('.bar');
+                if (bars.length > 0) {
+                    bars[0].style.transform = 'none';
+                    bars[1].style.opacity = '1';
+                    bars[2].style.transform = 'none';
+                }
+            }
+        });
+        
+        // Close menu when touching outside for mobile
+        document.addEventListener('touchstart', function(e) {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                
+                const bars = mobileMenuToggle.querySelectorAll('.bar');
+                if (bars.length > 0) {
+                    bars[0].style.transform = 'none';
+                    bars[1].style.opacity = '1';
+                    bars[2].style.transform = 'none';
+                }
+            }
+        }, {passive: true});
+        
+        // Update menu on window resize
+        window.addEventListener('resize', updateMenuVisibility);
+        
+        // Initial check
+        updateMenuVisibility();
+    }
+    
+    // Header scroll effect
+    const header = document.querySelector('header');
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     }
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu if open
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    if (mobileMenuToggle && mobileMenuToggle.classList.contains('active')) {
+                        mobileMenuToggle.classList.remove('active');
+                        const bars = mobileMenuToggle.querySelectorAll('.bar');
+                        bars[0].style.transform = 'none';
+                        bars[1].style.opacity = '1';
+                        bars[2].style.transform = 'none';
+                    }
+                }
+                
+                // Scroll smoothly to the target
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Adjust for header height
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
     // Header scroll effect
     window.addEventListener('scroll', function() {
