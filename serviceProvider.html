@@ -3,80 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Provider</title>
+    <title>Become a Service Provider - Sarathi</title>
+    <!-- Load style.css first -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Load serviceProvider.css after to override needed styles -->
     <link rel="stylesheet" href="assets/css/serviceProvider.css">
 </head>
 <body>
+    <div class="intro-container">
+        <div class="intro-text">Sarathi</div>
+    </div>
     <header>
-            <a href="index.html" class="header-a"><h1>Sarathi</h1></a>
+        <a href="index.html" class="header-a"><h1>Sarathi</h1></a>
+        <nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul id="nav-links">
+                <li><a href="#home">Home</a></li>   
+                <li><a href="#services">Services</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="userChoice.html" class="login-button">Login</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <section id="estimate-income">
-            <div class="worker-img">
-                <img src="assets/images/serviceProviderPage/asian-img.jpg" alt="Image of a Worker">
+        <!-- Hero Section -->
+        <section class="provider-hero">
+            <div class="provider-hero-content">
+                <h2 class="fade-in">Become a Sarathi Service Provider</h2>
+                <p class="fade-in">Join our trusted network of professionals and earn on your own terms</p>
+                <a href="#apply-now" class="cta-button fade-in">Apply Now</a>
             </div>
-            <div class="estimate-calc">
-                <h2>Earn money your way</h2>
-                <h4>See how much you can make working on Sarathi</h4>
-                <form action="/">
-                    <select name="area" id="area">
-                        <option value="tinkune">Tinkune</option>
-                    <option value="baluwatar">Baluwatar</option>
-                    <option value="baneshwor">Baneshwor</option>
-                    <option value="chabahil">Chabahil</option>
-                    <option value="dilli_bazaar">Dilli Bazaar</option>
-                    <option value="gairidhara">Gairidhara</option>
-                    <option value="gyaneshwar">Gyaneshwar</option>
-    <option value="kalimati">Kalimati</option>
-    <option value="lazimpat">Lazimpat</option>
-    <option value="maru">Maru</option>
-    <option value="naxal">Naxal</option>
-    <option value="samakhushi">Samakhushi</option>
-    <option value="sinamangal">Sinamangal</option>
-    <option value="swayambhu">Swayambhu</option>
-    <option value="thamel">Thamel</option>
-    <option value="balaju">Balaju</option>
-    <option value="maharajgunj">Maharajgunj</option>
-    <option value="banasthali">Banasthali</option>
-    <option value="nayabazar">Nayabazar</option>
-    <option value="shorakhutte">Shorakhutte</option>
-    <option value="lainchaur">Lainchaur</option>
-    <option value="new_road">New Road</option>
-    <option value="dallu">Dallu</option>
-    <option value="chhauni">Chhauni</option>
-    <option value="kalanki">Kalanki</option>
-    <option value="teku">Teku</option>
-    <option value="tripureshwor">Tripureshwor</option>
-    <option value="kuleshwor">Kuleshwor</option>
-    <option value="asan">Asan</option>
-    <option value="thapathali">Thapathali</option>
-    <option value="maitighar">Maitighar</option>
-    <option value="tinkune">Tinkune</option>
-    <option value="koteshwor">Koteshwor</option>
-    <option value="bagbazar">Bagbazar</option>
-    <option value="anamnagar">Anamnagar</option>
-    <option value="kamaladi">Kamaladi</option>
-    <option value="hattisar">Hattisar</option>
-    <option value="durbarmarg">Durbarmarg</option>
-    <option value="chandol">Chandol</option>
-    <option value="bansbari">Bansbari</option>
-    <option value="dhumbarahi">Dhumbarahi</option>
-    <option value="sukedhara">Sukedhara</option>
-    <option value="boudha">Boudha</option>
-    <option value="gaushala">Gaushala</option>
-    <option value="handigaun">Handigaun</option>
-    <option value="budhanilkantha">Budhanilkantha</option>
-    <option value="bhaisepati">Bhaisepati</option>
-    <option value="jhamsikhel">Jhamsikhel (Jhamel)</option>
-    <option value="golfutar">Golfutar</option>
-    <option value="balkot">Balkot</option>
-    <option value="taukhel">Taukhel</option>
+        </section>
 
-                    </select>
+        <!-- Income Estimator Section -->
+        <section id="estimate-income">
+            <div class="container">
+                <div class="worker-img">
+                    <img src="assets/images/serviceProviderPage/asian-img.jpg" alt="Image of a Service Provider">
+                    <div class="success-badge">
+                        <div class="badge-icon">★</div>
+                        <div class="badge-text">
+                            <h4>Trusted Providers</h4>
+                            <p>Join 1000+ professionals</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="estimate-calc">
+                    <h2>Earn money your way</h2>
+                    <h3>See how much you can make working on Sarathi</h3>
                     
+                    <div class="calculator-card">
+                        <form id="income-calculator">
+                            <div class="form-group">
+                                <label for="area">Your Service Area</label>
+                                <select name="area" id="area">
+                                    <option value="" disabled selected>Select your area</option>
+                                    <option value="tinkune">Tinkune</option>
+                                    <option value="baluwatar">Baluwatar</option>
+<option value="baneshwor">Baneshwor</option>
+<option value="chabahil">Chabahil</option>
+<option value="dilli_bazaar">Dilli Bazaar</option>
+<option value="gairidhara">Gairidhara</option>
+<option value="gyaneshwar">Gyaneshwar</option>
+<option value="kalimati">Kalimati</option>
+<option value="lazimpat">Lazimpat</option>
+<option value="maru">Maru</option>
+<option value="naxal">Naxal</option>
+<option value="samakhushi">Samakhushi</option>
+<option value="sinamangal">Sinamangal</option>
+<option value="swayambhu">Swayambhu</option>
+<option value="thamel">Thamel</option>
+<option value="balaju">Balaju</option>
+<option value="maharajgunj">Maharajgunj</option>
+<option value="banasthali">Banasthali</option>
+<option value="nayabazar">Nayabazar</option>
+<option value="shorakhutte">Shorakhutte</option>
+<option value="lainchaur">Lainchaur</option>
+<option value="new_road">New Road</option>
+<option value="dallu">Dallu</option>
+<option value="chhauni">Chhauni</option>
+<option value="kalanki">Kalanki</option>
+<option value="teku">Teku</option>
+<option value="tripureshwor">Tripureshwor</option>
+<option value="kuleshwor">Kuleshwor</option>
+<option value="asan">Asan</option>
+<option value="thapathali">Thapathali</option>
+<option value="maitighar">Maitighar</option>
+<option value="tinkune">Tinkune</option>
+<option value="koteshwor">Koteshwor</option>
+<option value="bagbazar">Bagbazar</option>
+<option value="anamnagar">Anamnagar</option>
+<option value="kamaladi">Kamaladi</option>
+<option value="hattisar">Hattisar</option>
+<option value="durbarmarg">Durbarmarg</option>
+<option value="chandol">Chandol</option>
+<option value="bansbari">Bansbari</option>
+<option value="dhumbarahi">Dhumbarahi</option>
+<option value="sukedhara">Sukedhara</option>
+<option value="boudha">Boudha</option>
+<option value="gaushala">Gaushala</option>
+<option value="handigaun">Handigaun</option>
+<option value="budhanilkantha">Budhanilkantha</option>
+<option value="bhaisepati">Bhaisepati</option>
+<option value="jhamsikhel">Jhamsikhel (Jhamel)</option>
+<option value="golfutar">Golfutar</option>
+<option value="balkot">Balkot</option>
+<option value="taukhel">Taukhel</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service-type">Service Type</label>
+                                <select name="service-type" id="service-type">
+                                    <option value="" disabled selected>Select service type</option>
+                                    <option value="plumber">Plumber</option>
+                                    <option value="electrician">Electrician</option>
+                                    <option value="tailor">Tailor</option>
+                                    <option value="painter">Painter</option>
+                                    <option value="maid">Maid</option>
+                                    <option value="cook">Cook</option>
+                                    <option value="driver">Driver</option>
+                                    <option value="gardener">Gardener</option>
+                                    <option value="tutor">Tutor</option>
+                                    <option value="beautician">Beautician</option>
+                                    <option value="waiter">Waiter</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hours-weekly">Hours per Week</label>
+                                <div class="range-container">
+                                    <input type="range" id="hours-weekly" min="5" max="40" value="20" step="5">
+                                    <div class="range-value"><span id="hours-value">20</span> hours</div>
+                                </div>
+                            </div>
+
+                            <div class="income-results">
+                                <div class="income-box">
+                                    <span class="income-title">Weekly Potential Income</span>
+                                    <span class="income-amount">NRs. <span id="weekly-income">10,000</span></span>
+                                </div>
+                                <div class="income-box">
+                                    <span class="income-title">Monthly Potential Income</span>
+                                    <span class="income-amount">NRs. <span id="monthly-income">40,000</span></span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="calculate-btn">Calculate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <div class="container">
+                <h2>Why become a Sarathi Service Provider?</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3>Competitive Earnings</h3>
+                        <p>Set your own rates and keep 85% of what you earn. Top providers make NRs. 50,000+ monthly.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⏰</div>
+                        <h3>Flexible Schedule</h3>
+                        <p>Work when you want. Set your availability and take jobs that fit your schedule.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏠</div>
+                        <h3>Work Locally</h3>
+                        <p>Choose jobs in your neighborhood to minimize travel time and maximize earnings.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📱</div>
+                        <h3>Easy Platform</h3>
+                        <p>Our user-friendly app makes it simple to manage jobs, communicate with clients, and get paid.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2>How Sarathi Works For Providers</h2>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Create your profile</h3>
+                        <p>Sign up and highlight your skills, experience, and availability</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Get verified</h3>
+                        <p>Complete our quick verification process to build trust with clients</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Receive job requests</h3>
+                        <p>Clients in your area will request your services</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Complete jobs & get paid</h3>
+                        <p>Provide excellent service and receive payment directly to your account</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Service Providers Say</h2>
+                
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"I've been working with Sarathi for 6 months and I'm earning twice what I made at my old job. The flexible schedule lets me spend more time with my family."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/serviceProviderPage/provider1.jpg" alt="Provider Testimonial" class="author-img">
+                            <div class="author-info">
+                                <h4>Rajesh Sharma</h4>
+                                <p>Electrician • Joined 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"As a student, Sarathi gives me the perfect way to earn money between classes. I can work evenings and weekends as a tutor and still focus on my studies."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/serviceProviderPage/provider2.jpg" alt="Provider Testimonial" class="author-img">
+                            <div class="author-info">
+                                <h4>Sunita Gurung</h4>
+                                <p>Tutor • Joined 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="apply-now" class="apply-now">
+            <div class="container">
+                <h2>Ready to join Sarathi?</h2>
+                <p>Complete the application below to get started as a service provider</p>
+                
+                <form class="apply-now-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-category">Service Category</label>
+                            <select id="service-category" name="service-category" required>
+                                <option value="" disabled selected>Select your service</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="tailor">Tailor</option>
+                                <option value="painter">Painter</option>
+                                <option value="maid">Maid</option>
+                                <option value="cook">Cook</option>
+                                <option value="driver">Driver</option>
+                                <option value="gardener">Gardener</option>
+                                <option value="tutor">Tutor</option>
+                                <option value="beautician">Beautician</option>
+                                <option value="waiter">Waiter</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" name="experience" min="0" max="50" placeholder="Years of experience" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="about">Tell us about yourself</label>
+                        <textarea id="about" name="about" rows="4" placeholder="Share your skills and why you want to join Sarathi" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
                 </form>
             </div>
         </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How soon can I start working after applying?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Once your application is approved and verification completed, you can start taking jobs immediately. The verification process typically takes 2-3 business days.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I get paid for my services?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Payments are processed through our platform. You'll receive payments directly to your bank account within 2-3 business days after job completion and client confirmation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I work part-time on Sarathi?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! You have complete flexibility to work as many or as few hours as you want. Many of our service providers work part-time while maintaining other jobs or responsibilities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What if I have a problem with a client?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our support team is available 7 days a week to help resolve any issues. You can contact us through the app or call our provider support line for immediate assistance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Footer (matching homepage) -->
+    <footer>
+        <p>&copy; 2025 Sarathi. All rights reserved.</p>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/serviceProvider.js"></script>
 </body>
 </html>

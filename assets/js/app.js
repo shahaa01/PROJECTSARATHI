@@ -360,81 +360,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add service provider capability
     const providerLink = document.createElement('li');
-    providerLink.innerHTML = '<a href="#" id="become-provider">Become a Provider</a>';
+    providerLink.innerHTML = '';
     document.querySelector('#nav-links').appendChild(providerLink);
     
     // Provider registration modal
     document.getElementById('become-provider')?.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        // Create modal if it doesn't exist
-        if (!document.querySelector('.provider-modal')) {
-            const modal = document.createElement('div');
-            modal.className = 'provider-modal';
-            
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <h2>Become a Service Provider</h2>
-                    <form id="provider-form">
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email Address" required>
-                        <input type="tel" placeholder="Phone Number" required>
-                        <select required>
-                            <option value="">Select Service Type</option>
-                            <option value="plumber">Plumber</option>
-                            <option value="carpenter">Carpenter</option>
-                            <option value="electrician">Electrician</option>
-                            <option value="tailor">Tailor</option>
-                            <option value="painter">Painter</option>
-                            <option value="maid">Maid</option>
-                            <option value="cook">Cook</option>
-                            <option value="driver">Driver</option>
-                            <option value="gardener">Gardener</option>
-                            <option value="tutor">Tutor</option>
-                            <option value="beautician">Beautician</option>
-                            <option value="waiter">Waiter</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <input type="text" placeholder="Years of Experience" required>
-                        <textarea placeholder="Brief description of your skills and experience" required></textarea>
-                        <button type="submit">Register as Provider</button>
-                    </form>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // Close modal functionality
-            document.querySelector('.close-modal').addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-            
-            // Handle provider form submission
-            document.getElementById('provider-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show success message
-                const formContent = this.innerHTML;
-                this.innerHTML = '<div class="success-message">Thank you for registering! Our team will review your application and contact you soon.</div>';
-                
-                // Reset form after 5 seconds and close modal
-                setTimeout(() => {
-                    this.innerHTML = formContent;
-                    modal.style.display = 'none';
-                }, 5000);
-            });
-        } else {
-            // Show existing modal
-            document.querySelector('.provider-modal').style.display = 'block';
-        }
     });
     
     // Create directory structure notice in console
