@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarathi - Local Service Provider</title>
+    <title>Sarathi - Connect with Trusted Local Service Providers in Nepal</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/homepage.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Intro Animation -->
     <div class="intro-container">
         <div class="intro-text">Sarathi</div>
     </div>
+
+    <!-- Header -->
     <header>
         <a href="index.html" class="header-a"><h1>Sarathi</h1></a>
         <nav>
@@ -21,72 +27,576 @@
             <ul id="nav-links">
                 <li><a href="#home">Home</a></li>   
                 <li><a href="#services">Services</a></li>
-                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="userChoice.html" class="login-button">Login</a></li>
-                <!-- <li><a href="serviceProvider.html" id="become-provider">Become a Provider</a></li> -->
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <h2>Reliable Home Services at Your Doorstep in Kathmandu</h2>
-        <input type="text" placeholder="Search for services...">
-        <button>Book a Service Now</button>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="fade-in">Your Trusted Service Partner in Nepal</h1>
+                    <p class="fade-in">Connect with verified local professionals for all your service needs - from plumbers and electricians to tutors and beauticians.</p>
+                    <div class="hero-cta fade-in">
+                        <a href="#services" class="primary-btn">Explore Services</a>
+                        <a href="serviceProvider.html" class="secondary-btn">Become a Provider</a>
+                    </div>
+                </div>
+                <div class="hero-search fade-in">
+                    <div class="search-container">
+                        <input type="text" placeholder="What service do you need?">
+                        <select>
+                            <option value="" disabled selected>Select location</option>
+                            <option value="kathmandu">Kathmandu</option>
+                            <option value="lalitpur">Lalitpur</option>
+                            <option value="bhaktapur">Bhaktapur</option>
+                            <option value="pokhara">Pokhara</option>
+                        </select>
+                        <button type="submit"><i class="fas fa-search"></i> Find Services</button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-text">Verified Providers</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-text">Service Categories</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-text">Happy Customers</span>
+                </div>
+            </div>
+        </section>
 
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="service-list">
-            <div class="service-item">Plumber</div>
-            <div class="service-item">Electrician</div>
-            <div class="service-item">Tailor</div>
-            <div class="service-item">Painter</div>
-            <div class="service-item">Maid</div>
-            <div class="service-item">Cook</div>
-            <div class="service-item">Driver</div>
-            <div class="service-item">Gardener</div>
-            <div class="service-item">Tutor</div>
-            <div class="service-item">Beautician</div>
-            <div class="service-item">Waiter</div>
-            
-        </div>
-    </section>
+        <!-- Featured Services Section -->
+        <section id="services" class="services">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Find trusted professionals for all your needs</p>
+            </div>
+            <div class="service-categories">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="popular">Popular</button>
+                    <button class="tab-btn" data-category="home">Home</button>
+                    <button class="tab-btn" data-category="professional">Professional</button>
+                    <button class="tab-btn" data-category="personal">Personal</button>
+                </div>
+                <div class="service-grid" id="service-grid">
+                    <!-- Popular Services (Default View) -->
+                    <div class="service-card" data-category="popular home">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3>Plumber</h3>
+                        <p>Fix leaks, installations & repairs</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                    <div class="service-card" data-category="popular home">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Electrician</h3>
+                        <p>Wiring, repairs & installations</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                    <div class="service-card" data-category="popular personal">
+                        <div class="service-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Tailor</h3>
+                        <p>Custom clothing & alterations</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                    <div class="service-card" data-category="popular home">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h3>Painter</h3>
+                        <p>Interior & exterior painting</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                    <div class="service-card" data-category="home">
+                        <div class="service-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3>Maid</h3>
+                        <p>Home cleaning & organization</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                    <div class="service-card" data-category="home personal">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Cook</h3>
+                        <p>Meal preparation & catering</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                    <div class="service-card" data-category="professional">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Driver</h3>
+                        <p>Professional driving services</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                    <div class="service-card" data-category="home">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Gardener</h3>
+                        <p>Garden maintenance & design</p>
+                        <a href="#booking" class="service-link">Book Now</a>
+                    </div>
+                </div>
+                <div class="view-all-services">
+                    <a href="#" class="view-all-btn">View All Services <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
 
-    <section id="booking" class="booking">
-        <h2>Book a Service</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="text" placeholder="Service Needed" required>
-            <label for="date">Select your date: </label>
-            <input type="date" class="when" id="date" required>
-            <label for="time">Select your time: </label>
-            <input type="time" class="when" id="time" required>
-            <button type="submit">Confirm Booking</button>
-        </form>
-    </section>
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="section-header">
+                <h2>How Sarathi Works</h2>
+                <p>Simple steps to get the help you need</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="step-number">1</div>
+                    <h3>Search</h3>
+                    <p>Find the service you need from our wide range of categories</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="step-number">2</div>
+                    <h3>Book</h3>
+                    <p>Schedule a convenient time for the service provider to visit</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="step-number">3</div>
+                    <h3>Connect</h3>
+                    <p>Meet with our verified professional who will complete the job</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="step-number">4</div>
+                    <h3>Review</h3>
+                    <p>Rate your experience and help others find great service</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="about" class="about">
-        <h2>About Sarathi</h2>
-        <p>Sarathi provides the best home services in Kathmandu with trusted professionals. Our goal is to make home repairs and services hassle-free for everyone.</p>
-    </section>
+        <!-- Featured Providers Section -->
+        <section class="featured-providers">
+            <div class="section-header">
+                <h2>Top-Rated Service Providers</h2>
+                <p>Meet some of our trusted professionals</p>
+            </div>
+            <div class="providers-slider">
+                <div class="provider-card">
+                    <div class="provider-image">
+                        <img src="assets/images/providers/provider1.jpg" alt="Service Provider" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="provider-info">
+                        <h3>Rajesh Sharma</h3>
+                        <p class="provider-profession">Electrician</p>
+                        <div class="provider-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.8</span>
+                        </div>
+                        <p class="provider-location"><i class="fas fa-map-marker-alt"></i> Kathmandu</p>
+                    </div>
+                </div>
+                <div class="provider-card">
+                    <div class="provider-image">
+                        <img src="assets/images/providers/provider2.jpg" alt="Service Provider" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="provider-info">
+                        <h3>Sunita Gurung</h3>
+                        <p class="provider-profession">Beautician</p>
+                        <div class="provider-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <p class="provider-location"><i class="fas fa-map-marker-alt"></i> Lalitpur</p>
+                    </div>
+                </div>
+                <div class="provider-card">
+                    <div class="provider-image">
+                        <img src="assets/images/providers/provider3.jpg" alt="Service Provider" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <div class="provider-info">
+                        <h3>Anil Thapa</h3>
+                        <p class="provider-profession">Plumber</p>
+                        <div class="provider-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.2</span>
+                        </div>
+                        <p class="provider-location"><i class="fas fa-map-marker-alt"></i> Bhaktapur</p>
+                    </div>
+                </div>
+            </div>
+            <div class="become-provider-cta">
+                <h3>Are you a skilled professional?</h3>
+                <p>Join our network of trusted service providers and grow your business</p>
+                <a href="serviceProvider.html" class="primary-btn">Become a Provider</a>
+            </div>
+        </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:support@sarathi.com">support@sarathi.com</a></p>
-        <p>Phone:  <a href="tel: +977 9819235243">+977 9819235243</a></p>
-    </section>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Real experiences from satisfied clients</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>I needed an electrician urgently when my power went out. Sarathi connected me with a professional who arrived within an hour and fixed the issue quickly. Excellent service!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/testimonials/user1.jpg" alt="Customer" onerror="this.src='https://via.placeholder.com/60'">
+                        <div class="author-info">
+                            <h4>Priya Shrestha</h4>
+                            <p>Kathmandu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>Finding a reliable tutor for my daughter was so easy with Sarathi. The platform verified their credentials, and we've been very happy with the quality of teaching. Highly recommend!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/testimonials/user2.jpg" alt="Customer" onerror="this.src='https://via.placeholder.com/60'">
+                        <div class="author-info">
+                            <h4>Ramesh Poudel</h4>
+                            <p>Lalitpur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>I've used Sarathi for plumbing, painting, and gardening services. Every time, the professionals were punctual, skilled, and courteous. It's become my go-to platform for all home services.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/testimonials/user3.jpg" alt="Customer" onerror="this.src='https://via.placeholder.com/60'">
+                        <div class="author-info">
+                            <h4>Sarita Maharjan</h4>
+                            <p>Bhaktapur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Booking Section -->
+        <section id="booking" class="booking">
+            <div class="section-header">
+                <h2>Book a Service</h2>
+                <p>Tell us what you need and we'll connect you with the right professional</p>
+            </div>
+            <div class="booking-container">
+                <form class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service-type">Service Type</label>
+                            <select id="service-type" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="tailor">Tailor</option>
+                                <option value="painter">Painter</option>
+                                <option value="maid">Maid</option>
+                                <option value="cook">Cook</option>
+                                <option value="driver">Driver</option>
+                                <option value="gardener">Gardener</option>
+                                <option value="tutor">Tutor</option>
+                                <option value="beautician">Beautician</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Your Location</label>
+                            <select id="location" required>
+                                <option value="" disabled selected>Select your area</option>
+                                <option value="tinkune">Tinkune</option>
+                                <option value="baluwatar">Baluwatar</option>
+                                <option value="baneshwor">Baneshwor</option>
+                                <option value="chabahil">Chabahil</option>
+                                <option value="thamel">Thamel</option>
+                                <option value="naxal">Naxal</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Preferred Time</label>
+                            <input type="time" id="time" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Service Details</label>
+                        <textarea id="details" placeholder="Please provide any specific details about the service you need" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Now</button>
+                </form>
+                <div class="booking-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Verified Professionals</h3>
+                        <p>All service providers undergo thorough background checks and skill verification</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3>Transparent Pricing</h3>
+                        <p>Know the cost upfront with no hidden fees or surprises</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Customer Support</h3>
+                        <p>Our team is available 7 days a week to assist with any questions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="section-header">
+                <h2>About Sarathi</h2>
+                <p>Your trusted partner for local services</p>
+            </div>
+            <div class="about-container">
+                <div class="about-content">
+                    <h3>Our Mission</h3>
+                    <p>Sarathi is a modern service marketplace platform designed to seamlessly connect individuals and households with trusted local service providers across Nepal. Whether it's a plumber in Pokhara, a tailor in Kathmandu, or a cook in Lalitpur—Sarathi makes it simple, fast, and reliable.</p>
+                    
+                    <h3>What We Offer</h3>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check-circle"></i> Wide Range of Services – From electricians, beauticians, drivers, tutors to gardeners & more.</li>
+                        <li><i class="fas fa-check-circle"></i> Location-Based Matching – Find service providers specific to your area.</li>
+                        <li><i class="fas fa-check-circle"></i> Verified Professionals – Each provider is background-checked and reviewed.</li>
+                        <li><i class="fas fa-check-circle"></i> Opportunities for Youths & Entrepreneurs – Create your own business listing and reach thousands.</li>
+                        <li><i class="fas fa-check-circle"></i> Customer Support – We're here to ensure smooth service delivery, always.</li>
+                    </ul>
+                    
+                    <h3>Why Choose Sarathi?</h3>
+                    <p>No need to search endlessly—we bring trusted help to your fingertips. With Sarathi, you get access to pre-screened professionals who are experts in their field, fair and transparent pricing, and a platform that's designed with your convenience in mind.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/about/about-image.jpg" alt="Sarathi Team" onerror="this.src='https://via.placeholder.com/500x400'">
+                </div>
+            </div>
+        </section>
+
+        <!-- App Download Section -->
+        <section class="app-download">
+            <div class="app-content">
+                <h2>Get the Sarathi App</h2>
+                <p>Book services on the go with our mobile app</p>
+                <div class="app-buttons">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i>
+                        <span>
+                            <small>Get it on</small>
+                            Google Play
+                        </span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple"></i>
+                        <span>
+                            <small>Download on the</small>
+                            App Store
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="app-image">
+                <img src="assets/images/app/mobile-app.png" alt="Sarathi Mobile App" onerror="this.src='https://via.placeholder.com/300x600'">
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>We're here to help with any questions</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Our Office</h3>
+                            <p>Tinkune, Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:+9779819235243">+977 9819235243</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@sarathi.com">info@sarathi.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>7 days a week, 8:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" placeholder="Enter subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" placeholder="Enter your message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Sarathi. All rights reserved.</p>
-        <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">FAQs</a></li>
-        </ul>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <h2>Sarathi</h2>
+                    <p>Connecting you with trusted local service providers</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Plumbing</a></li>
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Cleaning</a></li>
+                            <li><a href="#">Tutoring</a></li>
+                            <li><a href="#">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sarathi. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>Payment Methods:</span>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/homepage.js"></script>
 </body>
 </html>
