@@ -1198,6 +1198,13 @@ footer {
     
     .tab-btn {
         white-space: nowrap;
+        font-size: 0.6em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-weight:700;
+        letter-spacing: 1px;
     }
     
     .footer-links {

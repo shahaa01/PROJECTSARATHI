@@ -1,6 +1,17 @@
 // Homepage specific JavaScript for Sarathi
 
 document.addEventListener('DOMContentLoaded', function() {
+    //change the slogan according to the device's width
+    const width = window.innerWidth || document.documentElement.clientWidth;
+
+    if(width <= 768) {
+        let primarySlogan = document.querySelector('.primary-slogan');
+        let secSlogan = document.querySelector('.secondary-slogan');
+        secSlogan.innerText = 'Reliable Home Services at Your Doorstep in Kathmandu'
+        primarySlogan.innerText = 'Your Trusted Service Partner';
+
+    }
+
     // Service category tabs functionality
     const tabButtons = document.querySelectorAll('.tab-btn');
     const serviceCards = document.querySelectorAll('.service-card');
@@ -260,26 +271,30 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     
     document.head.appendChild(style);
+
+
+    const buttons = document.querySelectorAll('.glow'); // Select all buttons with .glow class
+
+    buttons.forEach(btn => {
+    // Add event listener for mouse movement
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();  // Get the button's position
+        const x = e.clientX - rect.left;  // Get the X position of the mouse within the button
+
+        // Update the custom properties for shine effect
+        btn.style.setProperty('--shine-x', `${x}px`);
+        btn.style.setProperty('--shine-opacity', '1');
+    });
+
+    // Reset shine effect opacity when mouse leaves
+    btn.addEventListener('mouseleave', () => {
+        btn.style.setProperty('--shine-opacity', '0');
+    });
+    });
+
+
 });
 
 
-const buttons = document.querySelectorAll('.glow'); // Select all buttons with .glow class
-
-buttons.forEach(btn => {
-  // Add event listener for mouse movement
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();  // Get the button's position
-    const x = e.clientX - rect.left;  // Get the X position of the mouse within the button
-
-    // Update the custom properties for shine effect
-    btn.style.setProperty('--shine-x', `${x}px`);
-    btn.style.setProperty('--shine-opacity', '1');
-  });
-
-  // Reset shine effect opacity when mouse leaves
-  btn.addEventListener('mouseleave', () => {
-    btn.style.setProperty('--shine-opacity', '0');
-  });
-});
 
 
