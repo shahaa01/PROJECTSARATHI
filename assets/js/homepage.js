@@ -261,3 +261,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.head.appendChild(style);
 });
+
+
+const buttons = document.querySelectorAll('.glow'); // Select all buttons with .glow class
+
+buttons.forEach(btn => {
+  // Add event listener for mouse movement
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();  // Get the button's position
+    const x = e.clientX - rect.left;  // Get the X position of the mouse within the button
+
+    // Update the custom properties for shine effect
+    btn.style.setProperty('--shine-x', `${x}px`);
+    btn.style.setProperty('--shine-opacity', '1');
+  });
+
+  // Reset shine effect opacity when mouse leaves
+  btn.addEventListener('mouseleave', () => {
+    btn.style.setProperty('--shine-opacity', '0');
+  });
+});
+
+
