@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Profile - Sarathi</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/provider-profile.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="header-a"><h1>Sarathi</h1></a>
+        <nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>   
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="userChoice.html" class="login-button glow">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Provider Profile Header -->
+        <section class="profile-header">
+            <div class="container">
+                <div class="profile-breadcrumb">
+                    <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> 
+                    <a href="service-detail.html?service=plumber">Plumbing</a> <i class="fas fa-chevron-right"></i> 
+                    <span>Rajesh Sharma</span>
+                </div>
+                <div class="profile-header-content">
+                    <div class="profile-image">
+                        <img src="assets/images/providers/provider1.jpg" alt="Rajesh Sharma" onerror="this.src='https://via.placeholder.com/200?text=Provider'">
+                        <div class="verification-badge" title="Verified Provider">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h1>Rajesh Sharma</h1>
+                        <div class="profile-profession">Professional Plumber</div>
+                        <div class="profile-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.8 (124 reviews)</span>
+                        </div>
+                        <div class="profile-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kathmandu, Nepal</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>8+ years experience</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-tools"></i>
+                                <span>350+ jobs completed</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Responds in ~30 minutes</span>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <a href="#book-now" class="primary-btn glow">Book Now</a>
+                            <button class="contact-btn"><i class="fas fa-phone-alt"></i> Contact</button>
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Provider Tabs Section -->
+        <section class="profile-tabs">
+            <div class="container">
+                <div class="tabs-container">
+                    <button class="tab-btn active" data-tab="about">About</button>
+                    <button class="tab-btn" data-tab="services">Services</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    <button class="tab-btn" data-tab="portfolio">Portfolio</button>
+                </div>
+
+                <!-- About Tab Content -->
+                <div class="tab-content active" id="about-tab">
+                    <div class="about-section">
+                        <h2>About Rajesh</h2>
+                        <p>I am a certified plumber with over 8 years of experience in residential and commercial plumbing services. I specialize in leak repairs, installations, and maintenance services. My goal is to provide reliable, high-quality plumbing solutions with excellent customer service.</p>
+                        
+                        <h3>Expertise</h3>
+                        <div class="expertise-tags">
+                            <span class="tag">Leak Repair</span>
+                            <span class="tag">Pipe Installation</span>
+                            <span class="tag">Drain Cleaning</span>
+                            <span class="tag">Fixture Installation</span>
+                            <span class="tag">Water Heater Repair</span>
+                            <span class="tag">Emergency Services</span>
+                        </div>
+                        
+                        <h3>Certifications</h3>
+                        <ul class="certifications-list">
+                            <li><i class="fas fa-certificate"></i> Certified Plumber - Nepal Plumbing Association</li>
+                            <li><i class="fas fa-certificate"></i> Advanced Plumbing Techniques - Technical Training Center</li>
+                            <li><i class="fas fa-certificate"></i> Water System Specialist - Water Works Institute</li>
+                        </ul>
+                        
+                        <h3>Languages</h3>
+                        <div class="languages">
+                            <span>Nepali (Native)</span>
+                            <span>English (Fluent)</span>
+                            <span>Hindi (Conversational)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Tab Content -->
+                <div class="tab-content" id="services-tab">
+                    <div class="services-section">
+                        <h2>Services Offered</h2>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-tint-slash"></i>
+                                </div>
+                                <div class="service-details">
+                                    <h3>Leak Repair</h3>
+                                    <p>Quick and effective solutions for all types of water leaks in your home</p>
+                                    <div class="service-price">
+                                        <span>Starting from</span>
+                                        <span class="price">Rs. 500</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-shower"></i>
+                                </div>
+                                <div class="service-details">
+                                    <h3>Installation Services</h3>
+                                    <p>Professional installation of plumbing fixtures and systems</p>
+                                    <div class="service-price">
+                                        <span>Starting from</span>
+                                        <span class="price">Rs. 1,200</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <div class="service-details">
+                                    <h3>Drain Cleaning</h3>
+                                    <p>Effective solutions for clogged drains and slow drainage issues</p>
+                                    <div class="service-price">
+                                        <span>Starting from</span>
+                                        <span class="price">Rs. 800</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="service-details">
+                                    <h3>Maintenance & Inspection</h3>
+                                    <p>Regular check-ups to prevent major plumbing issues</p>
+                                    <div class="service-price">
+                                        <span>Starting from</span>
+                                        <span class="price">Rs. 1,500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab Content -->
+                <div class="tab-content" id="reviews-tab">
+                    <div class="reviews-section">
+                        <div class="reviews-header">
+                            <h2>Customer Reviews</h2>
+                            <div class="reviews-summary">
+                                <div class="overall-rating">
+                                    <div class="rating-number">4.8</div>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <div class="rating-count">Based on 124 reviews</div>
+                                </div>
+                                <div class="rating-breakdown">
+                                    <div class="rating-bar">
+                                        <span>5 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 75%"></div>
+                                        </div>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>4 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 20%"></div>
+                                        </div>
+                                        <span>20%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>3 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 5%"></div>
+                                        </div>
+                                        <span>5%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>2 stars</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%"></div>
+                                        </div>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>1 star</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 0%"></div>
+                                        </div>
+                                        <span>0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <img src="assets/images/customers/customer1.jpg" alt="Customer" onerror="this.src='https://via.placeholder.com/60?text=Customer'">
+                                    <div>
+                                        <h4>Priya Shrestha</h4>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="review-date">2 days ago</div>
+                                    </div>
+                                </div>
+                                <p class="review-text">I had a leaking pipe that needed urgent attention. Rajesh arrived within an hour of booking and fixed the issue quickly and professionally. He was very knowledgeable and explained the problem clearly. Highly recommend!</p>
+                                <div class="review-service">
+                                    <span>Service: </span>
+                                    <span class="service-name">Leak Repair</span>
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <img src="assets/images/customers/customer2.jpg" alt="Customer" onerror="this.src='https://via.placeholder.com/60?text=Customer'">
+                                    <div>
+                                        <h4>Ramesh Poudel</h4>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="review-date">1 week ago</div>
+                                    </div>
+                                </div>
+                                <p class="review-text">Had my bathroom sink and toilet installed by Rajesh. The work was done efficiently and he was very knowledgeable. Fair pricing and good service. Would have given 5 stars but he was a bit late for the appointment.</p>
+                                <div class="review-service">
+                                    <span>Service: </span>
+                                    <span class="service-name">Installation Services</span>
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <img src="assets/images/customers/customer3.jpg" alt="Customer" onerror="this.src='https://via.placeholder.com/60?text=Customer'">
+                                    <div>
+                                        <h4>Sarita Maharjan</h4>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <div class="review-date">2 weeks ago</div>
+                                    </div>
+                                </div>
+                                <p class="review-text">Our kitchen drain was completely clogged and nothing we tried worked. Rajesh cleared it quickly and gave us tips to prevent future clogs. Very satisfied with the service and would definitely hire him again.</p>
+                                <div class="review-service">
+                                    <span>Service: </span>
+                                    <span class="service-name">Drain Cleaning</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="load-more">
+                            <button class="load-more-btn">Load More Reviews</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Tab Content -->
+                <div class="tab-content" id="portfolio-tab">
+                    <div class="portfolio-section">
+                        <h2>Work Portfolio</h2>
+                        <div class="portfolio-grid">
+                            <div class="portfolio-item">
+                                <img src="assets/images/portfolio/plumbing1.jpg" alt="Plumbing Work" onerror="this.src='https://via.placeholder.com/300x200?text=Plumbing+Work'">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-title">Bathroom Renovation</div>
+                                    <div class="portfolio-description">Complete plumbing installation for a modern bathroom</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <img src="assets/images/portfolio/plumbing2.jpg" alt="Plumbing Work" onerror="this.src='https://via.placeholder.com/300x200?text=Plumbing+Work'">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-title">Kitchen Sink Installation</div>
+                                    <div class="portfolio-description">Modern sink with efficient drainage system</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <img src="assets/images/portfolio/plumbing3.jpg" alt="Plumbing Work" onerror="this.src='https://via.placeholder.com/300x200?text=Plumbing+Work'">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-title">Pipe Repair</div>
+                                    <div class="portfolio-description">Emergency leak repair in residential building</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <img src="assets/images/portfolio/plumbing4.jpg" alt="Plumbing Work" onerror="this.src='https://via.placeholder.com/300x200?text=Plumbing+Work'">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-title">Water Heater Installation</div>
+                                    <div class="portfolio-description">Energy-efficient water heater setup</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <img src="assets/images/portfolio/plumbing5.jpg" alt="Plumbing Work" onerror="this.src='https://via.placeholder.com/300x200?text=Plumbing+Work'">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-title">Drainage System</div>
+                                    <div class="portfolio-description">Commercial building drainage installation</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <img src="assets/images/portfolio/plumbing6.jpg" alt="Plumbing Work" onerror="this.src='https://via.placeholder.com/300x200?text=Plumbing+Work'">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-title">Toilet Installation</div>
+                                    <div class="portfolio-description">Modern water-saving toilet setup</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="book-now" class="booking-section">
+            <div class="container">
+                <h2>Book Rajesh for Your Plumbing Needs</h2>
+                <p>Fill out the form below to schedule a service</p>
+                
+                <div class="booking-container">
+                    <form class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service-type">Service Type</label>
+                                <select id="service-type" required>
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="leak-repair">Leak Repair</option>
+                                    <option value="installation">Installation Services</option>
+                                    <option value="drain-cleaning">Drain Cleaning</option>
+                                    <option value="maintenance">Maintenance & Inspection</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Your Location</label>
+                                <select id="location" required>
+                                    <option value="" disabled selected>Select your area</option>
+                                    <option value="tinkune">Tinkune</option>
+                                    <option value="baluwatar">Baluwatar</option>
+                                    <option value="baneshwor">Baneshwor</option>
+                                    <option value="chabahil">Chabahil</option>
+                                    <option value="thamel">Thamel</option>
+                                    <option value="naxal">Naxal</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <input type="time" id="time" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="details">Service Details</label>
+                            <textarea id="details" placeholder="Please provide any specific details about the plumbing issue you're facing" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn glow">Book Now</button>
+                    </form>
+                    <div class="booking-info">
+                        <div class="provider-availability">
+                            <h3>Availability</h3>
+                            <div class="availability-calendar">
+                                <div class="calendar-header">
+                                    <button class="calendar-nav prev"><i class="fas fa-chevron-left"></i></button>
+                                    <div class="current-month">June 2025</div>
+                                    <button class="calendar-nav next"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="calendar-grid">
+                                    <!-- Calendar will be populated by JavaScript -->
+                                </div>
+                                <div class="calendar-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color available"></span>
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color booked"></span>
+                                        <span>Booked</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color unavailable"></span>
+                                        <span>Unavailable</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="booking-guarantee">
+                            <div class="guarantee-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Sarathi Service Guarantee</h3>
+                            <p>All bookings are covered by our service guarantee. If you're not satisfied, we'll make it right or provide a refund.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Similar Providers -->
+        <section class="similar-providers">
+            <div class="container">
+                <h2>Similar Plumbers in Your Area</h2>
+                <div class="providers-grid">
+                    <div class="provider-card">
+                        <div class="provider-image">
+                            <img src="assets/images/providers/provider2.jpg" alt="Anil Thapa" onerror="this.src='https://via.placeholder.com/150?text=Provider'">
+                        </div>
+                        <div class="provider-info">
+                            <h3>Anil Thapa</h3>
+                            <div class="provider-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0 (87)</span>
+                            </div>
+                            <p class="provider-location"><i class="fas fa-map-marker-alt"></i> Lalitpur</p>
+                            <p class="provider-experience"><i class="fas fa-briefcase"></i> 5+ years experience</p>
+                            <div class="provider-actions">
+                                <a href="provider-profile.html?id=2" class="view-profile-btn">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="provider-card">
+                        <div class="provider-image">
+                            <img src="assets/images/providers/provider3.jpg" alt="Binod Gurung" onerror="this.src='https://via.placeholder.com/150?text=Provider'">
+                        </div>
+                        <div class="provider-info">
+                            <h3>Binod Gurung</h3>
+                            <div class="provider-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.2 (56)</span>
+                            </div>
+                            <p class="provider-location"><i class="fas fa-map-marker-alt"></i> Bhaktapur</p>
+                            <p class="provider-experience"><i class="fas fa-briefcase"></i> 3+ years experience</p>
+                            <div class="provider-actions">
+                                <a href="provider-profile.html?id=3" class="view-profile-btn">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="provider-card">
+                        <div class="provider-image">
+                            <img src="assets/images/providers/provider4.jpg" alt="Sunil KC" onerror="this.src='https://via.placeholder.com/150?text=Provider'">
+                        </div>
+                        <div class="provider-info">
+                            <h3>Sunil KC</h3>
+                            <div class="provider-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7 (42)</span>
+                            </div>
+                            <p class="provider-location"><i class="fas fa-map-marker-alt"></i> Kathmandu</p>
+                            <p class="provider-experience"><i class="fas fa-briefcase"></i> 4+ years experience</p>
+                            <div class="provider-actions">
+                                <a href="provider-profile.html?id=4" class="view-profile-btn">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <h2>Sarathi</h2>
+                    <p>Connecting you with trusted local service providers</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#services">Services</a></li>
+                            <li><a href="index.html#how-it-works">How It Works</a></li>
+                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="service-detail.html?service=plumber">Plumbing</a></li>
+                            <li><a href="service-detail.html?service=electrician">Electrical</a></li>
+                            <li><a href="service-detail.html?service=cleaner">Cleaning</a></li>
+                            <li><a href="service-detail.html?service=tutor">Tutoring</a></li>
+                            <li><a href="index.html#services">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sarathi. All rights reserved.</p>
+                <div class="payment-methods">
+                    <span>Payment Methods:</span>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/provider-profile.js"></script>
+</body>
+</html>
