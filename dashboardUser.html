@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Sarathi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Dashboard Specific Styles */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* Welcome Header */
+        .welcome-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .welcome-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-text h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .welcome-text p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .user-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        
+
+        /* Dashboard Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        .dashboard-main {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .dashboard-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            transition: var(--transition);
+            border: 1px solid var(--gray-lighter, #e5e7eb);
+        }
+
+        .dashboard-card:hover {
+            box-shadow: 0 15px 40px rgba(255, 102, 0, 0.08);
+            border-color: var(--primary-light, #ff8533);
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--gray-lighter, #e5e7eb);
+            padding-bottom: 15px;
+        }
+
+        .card-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark, #111827);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-header h2 i {
+            color: var(--primary, #ff6600);
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--primary, #ff6600);
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .view-all i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .view-all:hover {
+            color: var(--primary-dark, #cc5500);
+        }
+
+        .view-all:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Upcoming Bookings */
+        .bookings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .booking-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background: var(--light, #f9fafb);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .booking-card:hover {
+            background: white;
+            border-color: var(--primary-light, #ff8533);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-lighter, #fff0e6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary, #ff6600);
+            flex-shrink: 0;
+        }
+
+        .booking-info {
+            flex-grow: 1;
+        }
+
+        .booking-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .booking-info p {
+            font-size: 14px;
+            color: var(--gray, #6b7280);
+            margin-bottom: 5px;
+        }
+
+        .booking-info .provider-name {
+            color: var(--primary, #ff6600);
+            font-weight: 500;
+        }
+
+        .booking-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .status-pending {
+            background: rgba(255, 204, 0, 0.15);
+            color: #b69000;
+        }
+
+        .status-confirmed {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--secondary-dark, #1d4ed8);
+        }
+
+        .status-completed {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success, #10b981);
+        }
+
+        .status-cancelled {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--error, #ef4444);
+        }
+
+        .booking-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .booking-btn {
+            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .reschedule-btn {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--secondary-dark, #1d4ed8);
+        }
+
+        .reschedule-btn:hover {
+            background: rgba(37, 99, 235, 0.2);
+        }
+
+        .cancel-btn {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--error, #ef4444);
+        }
+
+        .cancel-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        /* Booking History Table */
+        .booking-history {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .booking-history th {
+            text-align: left;
+            padding: 15px 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray, #6b7280);
+            border-bottom: 1px solid var(--gray-lighter, #e5e7eb);
+        }
+
+        .booking-history td {
+            padding: 15px 10px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--gray-lighter, #e5e7eb);
+        }
+
+        .booking-history tr:last-child td {
+            border-bottom: none;
+        }
+
+        .booking-history .service-name {
+            font-weight: 500;
+            color: var(--dark, #111827);
+        }
+
+        .rating i {
+            color: var(--accent, #ffcc00);
+            font-size: 12px;
+        }
+
+        .rate-now {
+            color: var(--primary, #ff6600);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .rate-now:hover {
+            color: var(--primary-dark, #cc5500);
+        }
+
+        /* Profile Summary */
+        .profile-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-lighter, #fff0e6);
+            margin-bottom: 15px;
+        }
+
+        .profile-summary h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-summary p {
+            font-size: 14px;
+            color: var(--gray, #6b7280);
+            margin-bottom: 5px;
+        }
+
+        .profile-summary .contact-info {
+            margin: 10px 0 20px;
+        }
+
+        .profile-actions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .profile-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .edit-profile-btn {
+            background: var(--primary, #ff6600);
+            color: white;
+            border: none;
+        }
+
+        .edit-profile-btn:hover {
+            background: var(--primary-dark, #cc5500);
+        }
+
+        .change-password-btn {
+            background: transparent;
+            color: var(--dark, #111827);
+            border: 1px solid var(--gray-lighter, #e5e7eb);
+        }
+
+        .change-password-btn:hover {
+            background: var(--gray-lighter, #e5e7eb);
+        }
+
+        /* Saved Providers */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .provider-card {
+            background: var(--light, #f9fafb);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .provider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary-light, #ff8533);
+            background: white;
+        }
+
+        .provider-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto 10px;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .provider-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .provider-card p {
+            font-size: 13px;
+            color: var(--primary, #ff6600);
+            margin-bottom: 5px;
+        }
+
+        .provider-card .rating {
+            margin-bottom: 15px;
+        }
+
+        .provider-actions {
+            display: flex;
+            border-top: 1px solid var(--gray-lighter, #e5e7eb);
+        }
+
+        .provider-actions button {
+            flex: 1;
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: 500;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .book-again {
+            color: var(--primary, #ff6600);
+            border-right: 1px solid var(--gray-lighter, #e5e7eb);
+        }
+
+        .book-again:hover {
+            background: var(--primary-lighter, #fff0e6);
+        }
+
+        .view-profile {
+            color: var(--secondary, #2563eb);
+        }
+
+        .view-profile:hover {
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        /* Feedback Section */
+        .feedback-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 15px;
+            border: 1px solid var(--gray-lighter, #e5e7eb);
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            resize: none;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .feedback-form textarea:focus {
+            outline: none;
+            border-color: var(--primary, #ff6600);
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+        }
+
+        .submit-feedback {
+            background: var(--primary, #ff6600);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .submit-feedback:hover {
+            background: var(--primary-dark, #cc5500);
+            transform: translateY(-3px);
+        }
+
+        /* Settings Footer */
+        .settings-footer {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .footer-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: var(--gray, #6b7280);
+            transition: var(--transition);
+        }
+
+        .footer-link i {
+            font-size: 20px;
+        }
+
+        .footer-link span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            color: var(--primary, #ff6600);
+        }
+
+        .footer-link.active {
+            color: var(--primary, #ff6600);
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--error, #ef4444);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .providers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .booking-history th:nth-child(3),
+            .booking-history td:nth-child(3) {
+                display: none;
+            }
+
+            .booking-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .booking-status {
+                align-self: flex-start;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .dashboard-container {
+                padding: 0 15px;
+                margin-top: 80px;
+            }
+
+            .welcome-header {
+                padding: 20px;
+            }
+
+            .welcome-text h1 {
+                font-size: 22px;
+            }
+
+            .dashboard-card {
+                padding: 20px 15px;
+            }
+
+            .booking-history th:nth-child(2),
+            .booking-history td:nth-child(2) {
+                display: none;
+            }
+
+            .providers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+
+            .settings-footer {
+                padding: 15px 10px;
+            }
+
+            .footer-link i {
+                font-size: 18px;
+            }
+
+            .footer-link span {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            .providers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .user-avatar {
+                width: 60px;
+                height: 60px;
+            }
+
+            .booking-history {
+                font-size: 12px;
+            }
+
+            .booking-btn {
+                font-size: 12px;
+                padding: 4px 10px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .welcome-text h1 {
+                font-size: 20px;
+            }
+
+            .card-header h2 {
+                font-size: 18px;
+            }
+
+            .providers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 320px) {
+            .welcome-header {
+                padding: 15px;
+            }
+
+            .dashboard-card {
+                padding: 15px 12px;
+            }
+
+            .service-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .providers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+          /* Notifications Styling */
+    .notifications-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .notification-item {
+        display: flex;
+        gap: 12px;
+        padding: 12px;
+        border-radius: 8px;
+        background: var(--light, #f9fafb);
+        transition: var(--transition);
+    }
+    
+    .notification-item:hover {
+        background: white;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .notification-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--primary-lighter, #fff0e6);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: var(--primary, #ff6600);
+        flex-shrink: 0;
+    }
+    
+    .notification-content {
+        flex-grow: 1;
+    }
+    
+    .notification-content p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: var(--dark, #111827);
+    }
+    
+    .notification-time {
+        font-size: 12px;
+        color: var(--gray, #6b7280);
+    }
+    
+    @media (max-width: 992px) {
+        .notification-item {
+            padding: 10px;
+        }
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .quick-action-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: var(--transition);
+        border: 1px solid var(--gray-lighter, #e5e7eb);
+    }
+    
+    .quick-action-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary-light, #ff8533);
+        box-shadow: 0 10px 30px rgba(255, 102, 0, 0.1);
+    }
+    
+    .action-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-lighter, #fff0e6);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--primary, #ff6600);
+        margin-bottom: 12px;
+    }
+    
+    .quick-action-card span {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--dark, #111827);
+    }
+    
+    @media (max-width: 768px) {
+        .quick-actions {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 425px) {
+        .action-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+        
+        .quick-action-card span {
+            font-size: 13px;
+        }
+    }
+      /* Stats Section */
+      .stats-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .stat-item {
+        padding: 12px;
+        background: var(--light, #f9fafb);
+        border-radius: 8px;
+    }
+    
+    .stat-item h4 {
+        font-size: 13px;
+        color: var(--gray, #6b7280);
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    
+    .stat-value {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--dark, #111827);
+        margin-bottom: 5px;
+    }
+    
+    .stat-change {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    
+    .positive {
+        color: var(--success, #10b981);
+    }
+    
+    .negative {
+        color: var(--error, #ef4444);
+    }
+    
+    .neutral {
+        color: var(--gray, #6b7280);
+    }
+    
+    /* Membership Info */
+    .membership-info {
+        background: var(--light, #f9fafb);
+        border-radius: 10px;
+        padding: 15px;
+    }
+    
+    .membership-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        font-weight: 500;
+    }
+    
+    .membership-badge i {
+        color: #c0c0c0;
+    }
+    
+    .progress-text {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    
+    .progress-bar {
+        height: 6px;
+        background: var(--gray-lighter, #e5e7eb);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: var(--primary, #ff6600);
+        border-radius: 10px;
+    }
+    
+    .view-benefits {
+        width: 100%;
+        background: transparent;
+        border: 1px solid var(--primary, #ff6600);
+        color: var(--primary, #ff6600);
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .view-benefits:hover {
+        background: var(--primary-lighter, #fff0e6);
+    }
+    </style>
+</head>
+<body>
+    <!-- Header from your existing site would go here -->
+    <header>
+        <a href="index.html" class="header-a"><h1>Sarathi</h1></a>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="login-button">Dashboard</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Welcome Header -->
+        <div class="welcome-header">
+            <div class="welcome-text">
+                <h1>Good Morning, Aditi!</h1>
+                <p>Welcome back to your Sarathi dashboard.</p>
+            </div>
+            <div class="user-profile">
+                <img src="/api/placeholder/400/400" alt="Aditi's profile" class="user-avatar">
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <div class="quick-action-card">
+                <div class="action-icon">
+                    <i class="fas fa-calendar-plus"></i>
+                </div>
+                <span>Book Service</span>
+            </div>
+            <div class="quick-action-card">
+                <div class="action-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <span>Find Provider</span>
+            </div>
+            <div class="quick-action-card">
+                <div class="action-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <span>Track Order</span>
+            </div>
+            <div class="quick-action-card">
+                <div class="action-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <span>Get Support</span>
+            </div>
+        </div>        
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Main Content Area -->
+            <div class="dashboard-main">
+                <!-- Upcoming Bookings -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calendar-check"></i> Upcoming Bookings</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="bookings-list">
+                        <div class="booking-card">
+                            <div class="service-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="booking-info">
+                                <h3>Electrician Service</h3>
+                                <p>With <span class="provider-name">Rajesh Kumar</span></p>
+                                <p><i class="fas fa-calendar"></i> Today, 2:00 PM</p>
+                                <div class="booking-actions">
+                                    <button class="booking-btn reschedule-btn">Reschedule</button>
+                                    <button class="booking-btn cancel-btn">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="booking-status status-confirmed">Confirmed</div>
+                        </div>
+
+                        <div class="booking-card">
+                            <div class="service-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="booking-info">
+                                <h3>Plumbing Repair</h3>
+                                <p>With <span class="provider-name">Sunil Thapa</span></p>
+                                <p><i class="fas fa-calendar"></i> Tomorrow, 10:00 AM</p>
+                                <div class="booking-actions">
+                                    <button class="booking-btn reschedule-btn">Reschedule</button>
+                                    <button class="booking-btn cancel-btn">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="booking-status status-pending">Pending</div>
+                        </div>
+
+                        <div class="booking-card">
+                            <div class="service-icon">
+                                <i class="fas fa-broom"></i>
+                            </div>
+                            <div class="booking-info">
+                                <h3>Home Cleaning</h3>
+                                <p>With <span class="provider-name">Asha Tamang</span></p>
+                                <p><i class="fas fa-calendar"></i> April 12, 9:00 AM</p>
+                                <div class="booking-actions">
+                                    <button class="booking-btn reschedule-btn">Reschedule</button>
+                                    <button class="booking-btn cancel-btn">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="booking-status status-confirmed">Confirmed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking History -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-history"></i> Booking History</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <table class="booking-history">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Provider</th>
+                                <th>Status</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="service-name">House Painting</td>
+                                <td>April 2, 2025</td>
+                                <td>Binod Chhetri</td>
+                                <td><span class="booking-status status-completed">Completed</span></td>
+                                <td class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="service-name">Kitchen Cleaning</td>
+                                <td>March 28, 2025</td>
+                                <td>Asha Tamang</td>
+                                <td><span class="booking-status status-completed">Completed</span></td>
+                                <td><a href="#" class="rate-now">Rate now</a></td>
+                            </tr>
+                            <tr>
+                                <td class="service-name">AC Repair</td>
+                                <td>March 25, 2025</td>
+                                <td>Rajesh Kumar</td>
+                                <td><span class="booking-status status-cancelled">Cancelled</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name">Furniture Assembly</td>
+                                <td>March 20, 2025</td>
+                                <td>Ramesh Shrestha</td>
+                                <td><span class="booking-status status-completed">Completed</span></td>
+                                <td class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Saved Providers -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-heart"></i> Saved Providers</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="providers-grid">
+                        <div class="provider-card">
+                            <img src="/api/placeholder/400/400" alt="Rajesh Kumar" class="provider-img">
+                            <h3>Rajesh Kumar</h3>
+                            <p>Electrician</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="provider-actions">
+                                <button class="book-again">Book Again</button>
+                                <button class="view-profile">Profile</button>
+                            </div>
+                        </div>
+                        
+                        <div class="provider-card">
+                            <img src="/api/placeholder/400/400" alt="Asha Tamang" class="provider-img">
+                            <h3>Asha Tamang</h3>
+                            <p>House Cleaner</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="provider-actions">
+                                <button class="book-again">Book Again</button>
+                                <button class="view-profile">Profile</button>
+                            </div>
+                        </div>
+                        
+                        <div class="provider-card">
+                            <img src="/api/placeholder/400/400" alt="Sunil Thapa" class="provider-img">
+                            <h3>Sunil Thapa</h3>
+                            <p>Plumber</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="provider-actions">
+                                <button class="book-again">Book Again</button>
+                                <button class="view-profile">Profile</button>
+                            </div>
+                        </div>
+                        
+                        <div class="provider-card">
+                            <img src="/api/placeholder/400/400" alt="Binod Chhetri" class="provider-img">
+                            <h3>Binod Chhetri</h3>
+                            <p>Painter</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                               <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+<div class="provider-actions">
+    <button class="book-again">Book Again</button>
+    <button class="view-profile">Profile</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Feedback Section -->
+<div class="dashboard-card">
+<div class="card-header">
+<h2><i class="fas fa-comment-dots"></i> Feedback</h2>
+</div>
+<form class="feedback-form">
+<textarea placeholder="Share your thoughts about Sarathi..."></textarea>
+<button type="submit" class="submit-feedback">Submit Feedback</button>
+</form>
+</div>
+</div>
+
+<!-- Sidebar/Profile Summary -->
+<div class="dashboard-sidebar">
+<div class="dashboard-card profile-summary">
+<img src="/api/placeholder/400/400" alt="Aditi Profile" class="profile-avatar">
+<h3>Aditi Sharma</h3>
+<p>Kathmandu, Nepal</p>
+<div class="contact-info">
+<p><i class="fas fa-phone-alt"></i> +977-9812345678</p>
+<p><i class="fas fa-envelope"></i> aditi@sarathi.com</p>
+</div>
+<div class="profile-actions">
+<button class="profile-btn edit-profile-btn">Edit Profile</button>
+<button class="profile-btn change-password-btn">Change Password</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Add this to the dashboard-sidebar section, after the profile summary card -->
+<div class="dashboard-card">
+    <div class="card-header">
+        <h2><i class="fas fa-bell"></i> Notifications</h2>
+        <a href="#" class="view-all">Mark all read <i class="fas fa-check"></i></a>
+    </div>
+    <div class="notifications-list">
+        <div class="notification-item">
+            <div class="notification-icon">
+                <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="notification-content">
+                <p>Your electrician service is confirmed for today at 2:00 PM.</p>
+                <span class="notification-time">1 hour ago</span>
+            </div>
+        </div>
+        <div class="notification-item">
+            <div class="notification-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="notification-content">
+                <p>Rate your recent cleaning service with Asha Tamang.</p>
+                <span class="notification-time">2 days ago</span>
+            </div>
+        </div>
+        <div class="notification-item">
+            <div class="notification-icon">
+                <i class="fas fa-percentage"></i>
+            </div>
+            <div class="notification-content">
+                <p>Special 20% discount on plumbing services this week!</p>
+                <span class="notification-time">3 days ago</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-card">
+    <div class="card-header">
+        <h2><i class="fas fa-chart-line"></i> Stats</h2>
+    </div>
+    <div class="stats-container">
+        <div class="stat-item">
+            <h4>Total Bookings</h4>
+            <div class="stat-value">24</div>
+            <div class="stat-change positive">+3 this month</div>
+        </div>
+        <div class="stat-item">
+            <h4>Amount Saved</h4>
+            <div class="stat-value">₹1,250</div>
+            <div class="stat-change positive">+₹550 from coupons</div>
+        </div>
+        <div class="stat-item">
+            <h4>Favorite Service</h4>
+            <div class="stat-value">Cleaning</div>
+            <div class="stat-change neutral">8 bookings</div>
+        </div>
+    </div>
+    
+    <div class="membership-info">
+        <div class="membership-badge">
+            <i class="fas fa-award"></i>
+            <span>Silver Member</span>
+        </div>
+        <div class="membership-progress">
+            <div class="progress-text">
+                <span>Progress to Gold</span>
+                <span>65%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 65%;"></div>
+            </div>
+        </div>
+        <button class="view-benefits">View Membership Benefits</button>
+    </div>
+</div>
+
+
+<!-- Settings Footer (Sticky Bottom Menu) -->
+<div class="settings-footer">
+<a href="#" class="footer-link active">
+<i class="fas fa-home"></i>
+<span>Dashboard</span>
+</a>
+<a href="#" class="footer-link">
+<i class="fas fa-calendar"></i>
+<span>Bookings</span>
+</a>
+<a href="#" class="footer-link">
+<i class="fas fa-heart"></i>
+<span>Saved</span>
+</a>
+<a href="#" class="footer-link">
+<i class="fas fa-cog"></i>
+<span>Settings</span>
+</a>
+</div>
+
+<!-- Logout Button -->
+<div style="text-align: center; margin-bottom: 40px;">
+<button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+</div>
+
+<!-- JS Scripts (Optional) -->
+<script>
+// Menu toggle logic
+document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+document.getElementById('nav-links')?.classList.toggle('active');
+});
+</script>
+</body>
+</html>
