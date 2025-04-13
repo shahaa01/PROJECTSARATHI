@@ -236,7 +236,7 @@ nav .login-button:hover {
     box-shadow: 0 8px 25px rgba(255, 102, 0, 0.2);
 }
 
-.hero button {
+/* .hero button {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     font-weight: 600;
@@ -255,7 +255,7 @@ nav .login-button:hover {
 .hero button:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
-}
+} */
 
 @keyframes fadeUp {
     to {
@@ -715,9 +715,9 @@ footer p {
         font-size: clamp(20px, 6vw, 28px);
     }
     
-    .hero input, .hero button {
+    /* .hero input, .hero button {
         padding: 15px 20px;
-    }
+    } */
     
     .service-list {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
