@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarathi Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #F9FAFB;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .sarathi-gradient {
+      background: linear-gradient(45deg, #FFA500, #FF4500);
+    }
+    
+    .sarathi-card {
+      border-radius: 1rem;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .sarathi-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+    }
+    
+    .sarathi-button {
+      background: linear-gradient(45deg, #FFA500, #FF4500);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      color: white;
+      font-weight: 500;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .sarathi-button:hover {
+      background: linear-gradient(45deg, #FF8C00, #FF3300);
+      transform: translateY(-2px);
+      box-shadow: 0px 4px 8px rgba(255, 69, 0, 0.3);
+    }
+    
+    .sarathi-input {
+      border-radius: 0.5rem;
+      border: 1px solid #E0E0E0;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .sarathi-input:focus {
+      border-color: #FFA500;
+      box-shadow: 0px 0px 0px 3px rgba(255, 165, 0, 0.2);
+      outline: none;
+    }
+    
+    .star-rating {
+      color: #FFD700;
+    }
+    
+    .status-confirmed {
+      background-color: #10B981;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+    }
+    
+    .status-pending {
+      background-color: #F59E0B;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+    }
+    
+    .status-completed {
+      background-color: #6366F1;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .sarathi-card {
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <div class="hidden md:flex flex-col bg-white w-64 p-4 border-r border-gray-200">
+      <div class="flex items-center mb-8 px-2">
+        <div class="sarathi-gradient rounded-lg p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"></path>
+          </svg>
+        </div>
+        <h1 class="ml-2 text-2xl font-bold">Sarathi</h1>
+      </div>
+      <nav class="flex-1">
+        <a href="#" class="flex items-center py-3 px-4 rounded-lg sarathi-gradient text-white mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Dashboard
+        </a>
+        <a href="#" class="flex items-center py-3 px-4 rounded-lg text-gray-600 hover:bg-gray-100 mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Bookings
+        </a>
+        <a href="#" class="flex items-center py-3 px-4 rounded-lg text-gray-600 hover:bg-gray-100 mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Providers
+        </a>
+        <a href="#" class="flex items-center py-3 px-4 rounded-lg text-gray-600 hover:bg-gray-100 mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Feedback
+        </a>
+        <a href="#" class="flex items-center py-3 px-4 rounded-lg text-gray-600 hover:bg-gray-100 mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Settings
+        </a>
+      </nav>
+      <div class="mt-8">
+        <button class="sarathi-button w-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 overflow-auto">
+      <!-- Mobile Header -->
+      <div class="md:hidden bg-white border-b border-gray-200 p-4 flex justify-between items-center sticky top-0 z-10">
+        <div class="flex items-center">
+          <div class="sarathi-gradient rounded-lg p-1 mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </div>
+          <h1 class="text-xl font-bold">Sarathi</h1>
+        </div>
+        <button class="p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="p-6">
+        <!-- Welcome Card -->
+        <div class="sarathi-card bg-white p-6 mb-6">
+          <div class="flex items-center">
+            <div class="h-16 w-16 rounded-full overflow-hidden">
+              <img src="/api/placeholder/64/64" alt="Profile" class="h-full w-full object-cover" />
+            </div>
+            <div class="ml-4">
+              <h2 class="text-2xl font-bold mb-1">Welcome back, Aaditya!</h2>
+              <p class="text-gray-600">Your next booking is in 2 days</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left Column -->
+          <div class="lg:col-span-2 space-y-6">
+            <!-- Upcoming Bookings -->
+            <div class="sarathi-card bg-white overflow-hidden">
+              <div class="sarathi-gradient p-4">
+                <h3 class="text-white text-lg font-semibold">Upcoming Bookings</h3>
+              </div>
+              <div class="p-4">
+                <!-- Booking Card 1 -->
+                <div class="border-b border-gray-100 pb-4 mb-4">
+                  <div class="flex justify-between items-start mb-2">
+                    <h4 class="font-semibold text-lg">Home Cleaning Service</h4>
+                    <span class="status-confirmed">Confirmed</span>
+                  </div>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <p class="text-gray-500">Date & Time</p>
+                      <p class="font-medium">Apr 16, 2025 • 10:00 AM</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-500">Provider</p>
+                      <p class="font-medium">CleanMax Services</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-500">Duration</p>
+                      <p class="font-medium">3 hours</p>
+                    </div>
+                  </div>
+                  <div class="mt-4 flex space-x-3">
+                    <button class="sarathi-button text-sm py-2">Reschedule</button>
+                    <button class="border border-gray-300 text-gray-700 rounded-lg px-4 py-2 text-sm hover:bg-gray-50 transition-colors">Cancel</button>
+                  </div>
+                </div>
+
+                <!-- Booking Card 2 -->
+                <div>
+                  <div class="flex justify-between items-start mb-2">
+                    <h4 class="font-semibold text-lg">Plumbing Repair</h4>
+                    <span class="status-pending">Pending</span>
+                  </div>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <p class="text-gray-500">Date & Time</p>
+                      <p class="font-medium">Apr 20, 2025 • 02:00 PM</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-500">Provider</p>
+                      <p class="font-medium">QuickFix Plumbers</p>
+                    </div>
+                    <div>
+                      <p class="text-gray-500">Duration</p>
+                      <p class="font-medium">1 hour</p>
+                    </div>
+                  </div>
+                  <div class="mt-4 flex space-x-3">
+                    <button class="sarathi-button text-sm py-2">Confirm</button>
+                    <button class="border border-gray-300 text-gray-700 rounded-lg px-4 py-2 text-sm hover:bg-gray-50 transition-colors">Cancel</button>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 p-4 text-center">
+                <a href="#" class="text-orange-500 font-medium hover:underline">View All Bookings</a>
+              </div>
+            </div>
+
+            <!-- Recent Bookings -->
+            <div class="sarathi-card bg-white overflow-hidden">
+              <div class="sarathi-gradient p-4">
+                <h3 class="text-white text-lg font-semibold">Recent Bookings</h3>
+              </div>
+              <div class="p-4">
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-3 mb-4">
+                  <select class="sarathi-input py-2 px-3 bg-white" style="max-width: 150px">
+                    <option>All Services</option>
+                    <option>Cleaning</option>
+                    <option>Plumbing</option>
+                    <option>Electrical</option>
+                  </select>
+                  <select class="sarathi-input py-2 px-3 bg-white" style="max-width: 150px">
+                    <option>All Status</option>
+                    <option>Completed</option>
+                    <option>Cancelled</option>
+                  </select>
+                  <input type="date" class="sarathi-input py-2 px-3 bg-white" style="max-width: 150px">
+                </div>
+
+                <!-- Booking History Items -->
+                <div>
+                  <!-- Booking 1 -->
+                  <div class="border-b border-gray-100 pb-4 mb-4">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <h4 class="font-semibold">AC Repair Service</h4>
+                        <p class="text-sm text-gray-500">Apr 5, 2025 • CoolAir Services</p>
+                      </div>
+                      <span class="status-completed">Completed</span>
+                    </div>
+                    <div class="mt-2 flex items-center">
+                      <div class="star-rating flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                      </div>
+                      <span class="text-sm text-gray-600 ml-2">Excellent service!</span>
+                    </div>
+                  </div>
+
+                  <!-- Booking 2 -->
+                  <div class="border-b border-gray-100 pb-4 mb-4">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <h4 class="font-semibold">Electrical Maintenance</h4>
+                        <p class="text-sm text-gray-500">Mar 28, 2025 • PowerPros</p>
+                      </div>
+                      <span class="status-completed">Completed</span>
+                    </div>
+                    <div class="mt-2 flex items-center">
+                      <div class="star-rating flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                      </div>
+                      <span class="text-sm text-gray-600 ml-2">Good work, prompt service</span>
+                    </div>
+                  </div>
+
+                  <!-- Booking 3 -->
+                  <div>
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <h4 class="font-semibold">Home Cleaning</h4>
+                        <p class="text-sm text-gray-500">Mar 15, 2025 • CleanMax Services</p>
+                      </div>
+                      <span class="status-completed">Completed</span>
+                    </div>
+                    <div class="mt-2 flex items-center">
+                      <div class="star-rating flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                      </div>
+                      <span class="text-sm text-gray-600 ml-2">Outstanding job!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 p-4 text-center">
+                <a href="#" class="text-orange-500 font-medium hover:underline">View All History</a>
+              </div>
+            </div>
+
+            <!-- Feedback Section -->
+            <div class="sarathi-card bg-white overflow-hidden">
+              <div class="sarathi-gradient p-4">
+                <h3 class="text-white text-lg font-semibold">Submit Feedback</h3>
+              </div>
+              <div class="p-4">
+                <select class="sarathi-input mb-4">
+                  <option>Select a completed service</option>
+                  <option>AC Repair Service - Apr 5, 2025</option>
+                  <option>Electrical Maintenance - Mar 28, 2025</option>
+                  <option>Home Cleaning - Mar 15, 2025</option>
+                </select>
+                
+                <div class="mb-4">
+                  <div class="text-sm mb-2">Rating</div>
+                  <div class="flex space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700" class="cursor-pointer">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700" class="cursor-pointer">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700" class="cursor-pointer">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700" class="cursor-pointer">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#E0E0E0" class="cursor-pointer">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
+                </div>
+                
+                <textarea class="sarathi-input h-32 mb-4" placeholder="Write your feedback here..."></textarea>
+                
+                <button class="sarathi-button w-full">Submit Feedback</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-6">
+            <!-- Quick Actions -->
+            <div class="sarathi-card bg-white p-6">
+              <h3 class="text-lg font-semibold mb-4">Quick Actions</h3>
+              <div class="grid grid-cols-2 gap-3">
+                <button class="sarathi-button flex items-center justify-center py-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Book Service
+                </button>
+                <button class="border border-gray-300 text-gray-700 rounded-lg flex items-center justify-center py-3 hover:bg-gray-50 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  Contact Us
+                </button>
+              </div>
+            </div>
+
+            <!-- Saved Providers -->
+            <div class="sarathi-card bg-white overflow-hidden">
+              <div class="sarathi-gradient p-4">
+                <h3 class="text-white text-lg font-semibold">Saved Providers</h3>
+              </div>
+              <div class="p-4">
+                <!-- Provider 1 -->
+                <div class="flex items-start mb-6">
+                  <div class="h-12 w-12 rounded-full overflow-hidden mr-3">
+                    <img src="/api/placeholder/48/48" alt="Provider" class="h-full w-full object-cover" />
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold mb-1">CleanMax Services</h4>
+                    <div class="flex items-center mb-2">
+                      <div class="star-rating flex mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                      </div>
+                      <span class="text-sm text-gray-600">Home Cleaning</span>
+                    </div>
+                    <button class="sarathi-button text-xs py-1 px-3">Book Again</button>
+                  </div>
+                </div>
+
+                <!-- Provider 2 -->
+                <div class="flex items-start mb-6">
+                  <div class="h-12 w-12 rounded-full overflow-hidden mr-3">
+                    <img src="/api/placeholder/48/48" alt="Provider" class="h-full w-full object-cover" />
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold mb-1">CoolAir Services</h4>
+                    <div class="flex items-center mb-2">
+                      <div class="star-rating flex mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                      </div>
+                      <span class="text-sm text-gray-600">AC Repair</span>
+                    </div>
+                    <button class="sarathi-button text-xs py-1 px-3">Book Again</button>
+                  </div>
+                </div>
+
+                <!-- Provider 3 -->
+                <div class="flex items-start">
+                  <div class="h-12 w-12 rounded-full overflow-hidden mr-3">
+                    <img src="/api/placeholder/48/48" alt="Provider" class="h-full w-full object-cover" />
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold mb-1">PowerPros</h4>
+                    <div class="flex items-center mb-2">
+                      <div class="star-rating flex mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                      </div>
+                      <span class="text-sm text-gray-600">Electrical Repair</span>
+                    </div>
+                    <button class="sarathi-button text-xs py-1 px-3">Book Again</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Edit Profile -->
+            <div class="sarathi-card bg-white overflow-hidden">
+              <div class="sarathi-gradient p-4">
+                <h3 class="text-white text-lg font-semibold">Edit Profile</h3>
+              </div>
+              <div class="p-4">
+                <div class="mb-4">
+                  <label class="block text-sm text-gray-600 mb-2">Full Name</label>
+                  <input type="text" class="sarathi-input" value="Aaditya Sharma">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm text-gray-600 mb-2">Phone Number</label>
+                  <input type="tel" class="sarathi-input" value="+91 98765 43210">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm text-gray-600 mb-2">Email Address</label>
+                  <input type="email" class="sarathi-input" value="aaditya.sharma@example.com">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm text-gray-600 mb-2">Password</label>
+                  <input type="password" class="sarathi-input" value="••••••••">
+                </div>
+                <button class="sarathi-button w-full">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Feather Icons
+    document.addEventListener('DOMContentLoaded', function() {
+      feather.replace();
+    });
+    
+    // Mobile menu toggle functionality
+    document.querySelector('button.p-2').addEventListener('click', function() {
+      // This would toggle mobile menu in a real implementation
+      alert('Mobile menu would toggle here');
+    });
+    
+    // Star rating functionality
+    document.querySelectorAll('.star-rating svg').forEach(function(star, index) {
+      star.addEventListener('click', function() {
+        // Set all previous stars to filled
+        for (let i = 0; i <= index; i++) {
+          document.querySelectorAll('.star-rating svg')[i].setAttribute('fill', '#FFD700');
+          document.querySelectorAll('.star-rating svg')[i].style.opacity = '1';
+        }
+        
+        // Set all next stars to empty
+        for (let i = index + 1; i < 5; i++) {
+          document.querySelectorAll('.star-rating svg')[i].setAttribute('fill', '#E0E0E0');
+          document.querySelectorAll('.star-rating svg')[i].style.opacity = '1';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
